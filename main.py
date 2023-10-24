@@ -9,7 +9,7 @@ width, height = 400, 400
 
 # 画面の初期化
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Virtual Joystick")
+pygame.display.set_caption("My Game")
 
 # 色
 background_color = (255, 255, 255)
@@ -21,17 +21,20 @@ FPS = 60
 wait_time = 1000 // FPS
 print(wait_time)
 
+def update_disp():
+    pass
+
 # メインループ
 running = True
 try:
     while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
         screen.fill(background_color)
         pygame.draw.circle(screen, base_color, (width // 2, height // 2), 10)
         pygame.display.flip()
         pygame.time.delay(wait_time)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
 
 except Exception as e:
     print(e)
